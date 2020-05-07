@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
-    <title>Todo list</title>
+    <title>Email</title>
     <style>
         .footer {
             position: fixed;
@@ -48,20 +48,20 @@
         <div class="col-sm-12 col-md-6 col-lg-6 ">
 
         <form action="/action_page.php" style="margin:20px;padding:20px;">
+            <h4>Send Email</h4>
             <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" placeholder="Enter email" id="email">
+                <label for="name">Name :</label>
+                <input name="userName" type="text" class="form-control" placeholder="Enter Name" id="name">
             </div>
             <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                <label for="email">Email address :</label>
+                <input name="userEmail" type="email" class="form-control" placeholder="Enter email" id="email">
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember me
-                </label>
+            <div class="form-group">
+                <label for="message">Message :</label>
+                <input name="message" type="text" class="form-control" placeholder="Enter Message" id="message">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
         <div class="col-sm-12 col-md-3 col-lg-3 "></div>
