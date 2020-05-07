@@ -1,5 +1,56 @@
 <?php 
+    // Added the dependency
+    require_once('lib/PHPMailer/PHPMailerAutoload.php');
+    
+    if(isset($_POST["submit"])){
 
+        // Get name.
+        $name = $_POST["userName"];
+
+        // Get email.
+        $email = $_POST["userEmail"];
+
+        // Get subject.
+        $subject = $_POST["subject"];
+
+        // Get message.
+        $message = $_POST["message"];
+
+        // Get subject.
+        $subject = $_POST["subject"];
+
+        // Use PHPMailer class.
+        $mail = new PHPMailer();
+
+        $mail->isSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = '465';
+        $mail->isHTML();
+
+        // Add email of the account.
+        $mail->Username = '<email>';
+
+        // Add password of the account
+        $mail->Password = '<password>';
+        $mail->SetFrom('<email>','<Name>');
+
+        // Add subject.
+        $mail->Subject = "$subject";
+    
+        // Add message.
+        $mail->Body = "$message";
+        
+        // This message must be come to the reforest srilanka
+        $mail->AddAddress("$email");
+        $result = $mail->Send();
+        if($result == 1){
+            header("Location: index.php");
+        } else {
+            echo "Sorry. Failure Message";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +98,7 @@
         <div class="col-sm-12 col-md-3 col-lg-3 "></div>
         <div class="col-sm-12 col-md-6 col-lg-6 ">
 
-        <form action="/action_page.php" style="margin:20px;padding:20px;">
+        <form action="index.php" method="POST" style="margin:20px;padding:20px;">
             <h4>Send Email</h4>
             <div class="form-group">
                 <label for="name">Name :</label>
@@ -56,6 +107,10 @@
             <div class="form-group">
                 <label for="email">Email address :</label>
                 <input name="userEmail" type="email" class="form-control" placeholder="Enter email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject :</label>
+                <input name="subject" type="text" class="form-control" placeholder="Enter Subject" id="subject">
             </div>
             <div class="form-group">
                 <label for="message">Message :</label>
