@@ -42,7 +42,7 @@
         // Add message.
         $mail->Body = "$message";
         
-        // This message must be come to the reforest srilanka
+        // Add senders' address.
         $mail->AddAddress("$email");
         $result = $mail->Send();
         if($result == 1){
